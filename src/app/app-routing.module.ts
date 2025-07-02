@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'distances',
     loadChildren: () => import('./distances/distances.module').then( m => m.DistancesPageModule)
+  },
+  {
+    path: 'news-letter',
+    loadChildren: () => import('./news-letter/news-letter.module').then( m => m.NewsLetterPageModule)
   }
 ];
 @NgModule({

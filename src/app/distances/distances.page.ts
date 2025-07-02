@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'app-distances',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DistancesPage implements OnInit {
 
-  constructor() { }
+  constructor(private globalService: GlobalService) { }
 
   ngOnInit() {
+    this.globalService.showLoader();
   }
 
 }
