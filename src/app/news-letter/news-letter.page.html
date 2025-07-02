@@ -1,0 +1,247 @@
+<ion-header class="custom-header">
+  <ion-toolbar>
+    <!-- <ion-title>Page Title</ion-title> -->
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="newsletter">
+  <div class="container">
+    <!-- <div class="newsletter_maininfo">
+      <div class="newsletter__heading">{{ newsletter.title }}</div>
+      <div class="newsletter__subtitle">{{ newsletter.subTitle }}</div>
+      <div class="newsletter2__info">
+        <p>{{ newsletter.description }}</p>
+      </div>
+    </div> -->
+    <div class="d-flex flex-column align-items-center mb-3">
+      <div class="newsletter__heading">{{ newsletter.title }}</div>
+      <div class="newsletter__subtitle">{{ newsletter.subTitle }}</div>
+    </div>
+    <div class="row mx-0 align-items-center">
+      <div
+        class="col-12 col-md-6 px-5 d-flex flex-column justify-content-center custom-width"
+        [ngStyle]="{ padding: newsLetterPadding }"
+      >
+        <div>
+          <div
+            *ngIf="useDescriptionHtmlString"
+            [innerHtml]="newsletter.description"
+            class="newsletter2__info"
+          ></div>
+          <ng-content select="[description]"></ng-content>
+        </div>
+        <!-- <div class="row g-4 mb-4">
+          <div *ngFor="let included of newsletter.whatsIncluded" class="newsletter__item col-6">
+            <svg-icon [src]="included.icon" [svgStyle]="{'fill': 'transparent'}"></svg-icon>
+            <span>{{included.title}}</span>
+          </div>
+        </div> -->
+        <!-- <div class="newsletter__code_wrapper"></div> -->
+        <div id="mc_embed_shell">
+          <link
+            href="//cdn-images.mailchimp.com/embedcode/classic-061523.css"
+            rel="stylesheet"
+            type="text/css"
+          />
+          <style type="text/css">
+            #mc_embed_signup {
+              background: transparent;
+              clear: left;
+              color: #000000;
+              font: 14px Helvetica, Arial, sans-serif;
+              width: 100%;
+              margin: 0px;
+            }
+            .asterisk {
+              color: #000000 !important;
+            }
+            .w-100 {
+              width: 100%;
+            }
+            #mc_embed_signup form {
+              margin: 00px;
+            }
+            #mc_embed_signup .mc-field-group input{
+              background-color: #fff !important;;
+              width: 100%;
+              height: 40px;
+            }
+            #mc_embed_signup .mc-field-group {
+              width: 100% !important;
+              padding-bottom: 3%;
+            }
+            .bntsubscr {
+              height: 40px !important;
+              width: 100% !important;
+              clear: both;
+              background-color: #111;
+              border: 0 none;
+              border-radius: 4px;
+              transition: all 0.23s ease-in-out 0s;
+              color: #FFFFFF;
+              cursor: pointer;
+              display: inline-block;
+              font-size: 15px;
+              line-height: 32px;
+              margin: 0 5px 10px 0;
+              padding: 0 22px;
+              text-align: center;
+              text-decoration: none;
+              vertical-align: top;
+              white-space: nowrap;
+            }
+          </style>
+          <div id="mc_embed_signup">
+            <form
+              action="https://runthrough.us11.list-manage.com/subscribe/post?u=bed0a808137f57597e84fc802&amp;id=48f3fefd06&amp;f_id=00eacee1f0"
+              method="post"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              class="validate"
+              ngNoForm
+            >
+              <div id="mc_embed_signup_scroll">
+                <div class="mc-field-group">
+                  <input
+                    type="email"
+                    placeholder="Email Address *"
+                    name="EMAIL"
+                    class="required email form-control"
+                    id="mce-EMAIL"
+                    required=""
+                    value=""
+                  />
+                </div>
+                <div class="mc-field-group">
+                  <input
+                    type="text"
+                    name="FNAME"
+                    class="required text form-control"
+                    id="mce-FNAME"
+                    required=""
+                    value=""
+                    placeholder="First Name *"
+                  />
+                </div>
+                <div class="mc-field-group">
+                  <input
+                    type="text"
+                    name="LNAME"
+                    class="required text form-control"
+                    id="mce-LNAME"
+                    placeholder="Last Name *"
+                    required=""
+                    value=""
+                  />
+                </div>
+                <div hidden="">
+                  <input type="hidden" name="tags" value="9344312" />
+                </div>
+                <div id="mce-responses" class="clear">
+                  <div
+                    class="response"
+                    id="mce-error-response"
+                    style="display: none"
+                  ></div>
+                  <div
+                    class="response"
+                    id="mce-success-response"
+                    style="display: none"
+                  ></div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  style="position: absolute; left: -5000px"
+                >
+                  <input
+                    type="text"
+                    name="b_bed0a808137f57597e84fc802_48f3fefd06"
+                    tabindex="-1"
+                    value=""
+                  />
+                </div>
+                <div class="clear" (click)="submitButton()">
+                  <input
+                    type="submit"
+                    name="subscribe"
+                    id="mc-embedded-subscribe"
+                    class="button w-100 btn btn-primary bntsubscr"
+                    value="Subscribe"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <script
+            type="text/javascript"
+            src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
+          ></script>
+          <script type="text/javascript">
+            (function ($) {
+              window.fnames = new Array();
+              window.ftypes = new Array();
+              fnames[0] = "EMAIL";
+              ftypes[0] = "email";
+              fnames[1] = "FNAME";
+              ftypes[1] = "text";
+              fnames[2] = "LNAME";
+              ftypes[2] = "text";
+              fnames[18] = "MMERGE18";
+              ftypes[18] = "text";
+              fnames[23] = "MMERGE23";
+              ftypes[23] = "text";
+              fnames[22] = "MMERGE22";
+              ftypes[22] = "number";
+              fnames[20] = "MMERGE20";
+              ftypes[20] = "text";
+              fnames[16] = "MMERGE16";
+              ftypes[16] = "text";
+              fnames[13] = "MMERGE13";
+              ftypes[13] = "text";
+              fnames[12] = "MMERGE12";
+              ftypes[12] = "text";
+              fnames[25] = "MMERGE25";
+              ftypes[25] = "text";
+              fnames[24] = "MMERGE24";
+              ftypes[24] = "text";
+              fnames[8] = "MMERGE8";
+              ftypes[8] = "date";
+              fnames[5] = "MMERGE5";
+              ftypes[5] = "text";
+              fnames[7] = "MMERGE7";
+              ftypes[7] = "text";
+              fnames[19] = "MMERGE19";
+              ftypes[19] = "text";
+              fnames[21] = "SMSPHONE";
+              ftypes[21] = "smsphone";
+              fnames[6] = "MMERGE6";
+              ftypes[6] = "text";
+              fnames[10] = "MMERGE10";
+              ftypes[10] = "text";
+              fnames[17] = "MMERGE17";
+              ftypes[17] = "text";
+              fnames[15] = "MMERGE15";
+              ftypes[15] = "text";
+              fnames[11] = "MMERGE11";
+              ftypes[11] = "text";
+              fnames[3] = "ADDRESS";
+              ftypes[3] = "address";
+              fnames[4] = "PHONE";
+              ftypes[4] = "phone";
+              fnames[14] = "MMERGE14";
+              ftypes[14] = "text";
+              fnames[9] = "MMERGE9";
+              ftypes[9] = "date";
+            })(jQuery);
+            var $mcj = jQuery.noConflict(true);
+          </script>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
